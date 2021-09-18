@@ -18,6 +18,15 @@ namespace MiCalculadora
 			InitializeComponent();
 		}
 
+		/// <summary>
+		/// Cuando se dispara el evento se realiza una validacion sobre el comboBox el cual debe estar
+		/// seleccionando un operador, caso contrario saldra un alerta para informar al usuario del error.
+		/// Una vez validado el comboBox se llamaran a los metodos correspondientes para realizar la operacion,
+		/// una vez hecha el resultado se mostrara en el Label y a su vez la operacion quedara registrada
+		/// en el ListBox.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void OperarNumeros(object sender, EventArgs e)
 		{
 			Operando numero1 = new Operando(this.txtNumero1.Text);
@@ -45,6 +54,12 @@ namespace MiCalculadora
 
 		}
 
+		/// <summary>
+		/// Este evento ¨limpiara¨ los textBox y el Label setteando sus valores a ¨ ¨ en caso de los 
+		/// textBox y el label, en el caso del ComboBox se seleccionara el item de la posicion cero.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void Limpiar(object sender, EventArgs e)
 		{
 			this.txtNumero1.Text = "";
@@ -53,11 +68,21 @@ namespace MiCalculadora
 			this.lblResultado.Text = "";
 		}
 
+		/// <summary>
+		/// Este evento cerrara la calculadora
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void Cerrar(object sender, EventArgs e)
 		{
 			this.Close();
 		}
 
+		/// <summary>
+		/// Este evento cerra la calculdora previamente lanzar un confirmacion.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			DialogResult result = MessageBox.Show("Estas seguro que desea cerrar?", "Calculadora",
@@ -73,6 +98,12 @@ namespace MiCalculadora
 			
 		}
 
+		/// <summary>
+		/// Este evento convertira el numero decimal del Label a Binario, mostrandolo en el historial
+		/// de la calculadora y en el Label.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ConvertirABinario(object sender, EventArgs e)
 		{
 			StringBuilder historial = new StringBuilder();
@@ -100,7 +131,12 @@ namespace MiCalculadora
 			}
 
 		}
-
+		/// <summary>
+		/// Este evento convertira el numero binario del label en decimal, mostrandolo en el label y en el 
+		/// historial de la calculadora.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void ConvertirADecimal(object sender, EventArgs e)
 		{
 			Operando numero = new Operando();

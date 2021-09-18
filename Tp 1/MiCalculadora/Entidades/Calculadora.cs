@@ -29,6 +29,12 @@ namespace Entidades
 			return numero;
 		}
 
+		/// <summary>
+		/// Recibe un char operador el cual representa el tipo de operacion a realizar. 
+		/// En caso de que sea valido retornara el operador, caso contrario retornara el operador de suma
+		/// </summary>
+		/// <param name="operador"></param>
+		/// <returns></returns>
 		static private char ValidarOperador(char operador) {
 
 			if (operador != ' ')
