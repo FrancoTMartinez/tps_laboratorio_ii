@@ -13,29 +13,23 @@ namespace MiCalculadora
 		}
 
 		/// <summary>
-		/// Cuando se dispara el evento se realiza una validacion sobre el comboBox el cual debe estar
-		/// seleccionando un operador, caso contrario saldra un alerta para informar al usuario del error.
-		/// Una vez validado el comboBox se llamaran a los metodos correspondientes para realizar la operacion,
-		/// una vez hecha el resultado se mostrara en el Label y a su vez la operacion quedara registrada
-		/// en el ListBox.
+		/// Cuando se realiza el click en dicho boton, llama al metodo estatico correspondiente para realizar la operacion para
+		/// luego escribir los resultados en el label y en el listbox.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void OperarNumeros(object sender, EventArgs e)
 		{
-			Operando numero1 = new Operando(this.txtNumero1.Text);
-			Operando numero2 = new Operando(this.txtNumero2.Text);
-
-
-
 			char.TryParse(this.cmbBoxOperando.Text, out char operador);
-			double resultado = Calculadora.Operar(numero1, numero2, operador);
+			double resultado = Operar(this.txtNumero1.Text, this.txtNumero2.Text, operador);
 
 			StringBuilder historial = new StringBuilder();
+
 			historial.AppendLine(this.txtNumero1.Text);
 			if (operador == '\0') {
 				operador = '+';
 			}
+
 			historial.AppendLine(operador.ToString());
 			historial.AppendLine(this.txtNumero2.Text);
 			historial.AppendLine("=" + resultado.ToString());
@@ -43,9 +37,46 @@ namespace MiCalculadora
 			this.listBoxHistorial.Items.Add(historial.ToString());
 			this.lblResultado.Text = resultado.ToString();
 
-
-
 		}
+
+
+		/// <summary>
+		/// Metodo que realiza las operaciones con los datos ingresados
+		/// </summary>
+		/// <param name="numero1"> numero ingresado en el boton 1</param>
+		/// <param name="numero2">numero ingresado en el boton 2</param>
+		/// <param name="operador"> operador </param>
+		/// <returns></returns>
+		private static double Operar(string numero1, string numero2, char operador)
+		{
+			Operando num1 = new Operando(numero1);
+			Operando num2 = new Operando(numero2);
+			
+
+			for (int i = 0; i < numero1.Length; i++)
+			{
+				if (numero1[i] >= 'a' || numero1[i] >= 'A')
+				{
+					MessageBox.Show("No es posible realizar operacion con letras");
+					break;
+				}
+			}
+			for (int j = 0; j < numero2.Length; j++)
+			{
+				if (numero2[j] >= 'a' || numero2[j] >= 'A')
+				{
+					MessageBox.Show("No es posible realizar operacion con letras");
+					break;
+				}
+			}
+
+			double resultado = Calculadora.Operar(num1, num2, operador);
+			return resultado;
+		}
+
+
+
+
 
 		/// <summary>
 		/// Este evento ¨limpiara¨ los textBox y el Label setteando sus valores a ¨ ¨ en caso de los 
