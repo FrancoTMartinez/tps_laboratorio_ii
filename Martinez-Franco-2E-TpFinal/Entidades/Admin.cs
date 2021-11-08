@@ -116,14 +116,9 @@ namespace Entidades
 
 		public bool UpdateFromList(Admin obj)
 		{
-			if (obj == null)
-			{
-				throw new Exception("El objeto no puede ser null");
-			}
-
 			foreach (Admin admin in adminList)
 			{
-				if (admin.User == obj.User && admin.Id != obj.Id)
+				if ((admin.User == obj.User && admin.Id != obj.Id) || (admin.Dni == obj.Dni && admin.Id != obj.Id))
 				{
 					return false;
 				}
@@ -131,6 +126,7 @@ namespace Entidades
 				{
 					if (admin.Id == obj.Id)
 					{
+						admin.Dni = obj.Dni;
 						admin.User = obj.User;
 						admin.Password = obj.Password;
 						archAdmin.ListToXML(adminList);

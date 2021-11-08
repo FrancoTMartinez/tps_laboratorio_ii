@@ -71,31 +71,43 @@ namespace Martinez_Franco_2E_TpFinal
 
 		private void btnModificar_Click(object sender, EventArgs e)
 		{
-			if (this.txtBoxUser.Text != string.Empty && this.txtBoxPassword.Text != string.Empty && Validar.ValidarCadenaTexto(this.txtBoxUser.Text))
+			if (this.txtBoxUser.Text != string.Empty && this.txtBoxPassword.Text != string.Empty)
 			{
-				try
+				if (Validar.ValidarCadenaTexto(this.txtBoxUser.Text))
 				{
-					admin.User = this.txtBoxUser.Text;
-					admin.Password = this.txtBoxPassword.Text;
+					if (Validar.ValidarDNI(this.txtBoxDni.Text)) {
+						try
+						{
+							admin.Dni = this.txtBoxDni.Text;
+							admin.User = this.txtBoxUser.Text;
+							admin.Password = this.txtBoxPassword.Text;
 
-					if (admin.UpdateFromList(admin))
-					{
-						this.lblInforme2.ForeColor = Color.Green;
-						this.lblInforme2.Text = "Se modifico correctamente.";
-						Clear();
+							if (admin.UpdateFromList(admin))
+							{
+								this.lblInforme2.ForeColor = Color.Green;
+								this.lblInforme2.Text = "Se modifico correctamente.";
+								Clear();
+							}
+							else
+							{
+								this.lblInforme.ForeColor = Color.Red;
+								this.lblInforme.Text = "El usuario ingresado ya se encuentra registrado.";
+							}
+						}
+						catch (Exception)
+						{
+
+							this.lblInforme.ForeColor = Color.Red;
+							this.lblInforme.Text = "Datos invalidos.";
+						}
 					}
-					else
-					{
-						this.lblInforme.ForeColor = Color.Red;
-						this.lblInforme.Text = "El usuario ingresado ya se encuentra registrado.";
-					}
+
 				}
-				catch (Exception)
-				{
-
+				else {
 					this.lblInforme.ForeColor = Color.Red;
-					this.lblInforme.Text = "Datos invalidos.";
+					this.lblInforme.Text = "El usuario debe contener solo letras.";
 				}
+
 			}
 			else
 			{
