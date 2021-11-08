@@ -11,6 +11,8 @@ namespace Martinez_Franco_2E_TpFinal
 		public FrmVoto()
 		{
 			InitializeComponent();
+			Persona.VerificarArchivoPersona();
+			Canal.VerificarArchivoCanal();
 		}
 
 		private void btnEligirCanal_Click(object sender, EventArgs e)
@@ -40,8 +42,6 @@ namespace Martinez_Franco_2E_TpFinal
 
 		private void btnAceptar_Click(object sender, EventArgs e)
 		{
-			Persona.VerificarArchivoPersona();
-			Canal.VerificarArchivoCanal();
 
 			if (Validar.ValidarDNI(this.txtDNI.Text))
 			{

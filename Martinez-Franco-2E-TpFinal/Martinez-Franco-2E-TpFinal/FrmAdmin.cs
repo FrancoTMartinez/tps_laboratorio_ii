@@ -53,7 +53,8 @@ namespace Martinez_Franco_2E_TpFinal
 		{
 			try
 			{
-				if (this.txtCanalNuevo.Text != string.Empty && Validar.ValidarCadenaTextoConNumeros(this.txtCanalNuevo.Text))
+				Canal.VerificarArchivoCanal();
+				if (this.txtCanalNuevo.Text != string.Empty && Validar.ValidarCadenaTextoConNumeros(this.txtCanalNuevo.Text) && Validar.ValidateExistingCanal(this.txtCanalNuevo.Text))
 				{
 					Canal nuevoCanal = new Canal(this.txtCanalNuevo.Text);
 					nuevoCanal.AddToList(nuevoCanal);

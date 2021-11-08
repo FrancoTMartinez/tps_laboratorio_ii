@@ -147,5 +147,23 @@ namespace Entidades
 			return false;
 		}
 
+		/// <summary>
+		/// Valida que cuando agregues un canal no haya uno repetido
+		/// </summary>
+		/// <param name="dni"></param>
+		/// <returns></returns>
+		static public bool ValidateExistingCanal(string nombreCanal)
+		{
+			List<Canal> canalList = Canal.GetList();
+			foreach (Canal item in canalList)
+			{
+				if (item.Nombre == nombreCanal)
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
 	}
 }
