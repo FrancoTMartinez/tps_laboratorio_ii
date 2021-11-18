@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="FrmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmAdministradoresABM%27.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmBuscarCanal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmEdad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmElegirCanal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmRangoEtario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmResultados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmVoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
