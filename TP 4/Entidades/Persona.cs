@@ -60,7 +60,7 @@ namespace Entidades
 		/// <summary>
 		/// Metodo que hace el invoke del delegado asociado al evento
 		/// </summary>
-		public void ContarPeronas()
+		public void ContarPersonas()
 		{
 			if (CantPersonasNecesarias != null)
 			{

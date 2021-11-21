@@ -119,7 +119,7 @@ namespace Martinez_Franco_2E_TpFinal
 			this.MinimumSize = new System.Drawing.Size(522, 428);
 			this.Name = "frmMain";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Encuensta Nacional De Television";
+			this.Text = "Encuesta Nacional De Television";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

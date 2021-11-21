@@ -29,7 +29,7 @@ namespace Martinez_Franco_2E_TpFinal
 				Persona persona = new Persona();
 				persona.CantPersonasNecesarias += HabilitarBotonEvent;
 				Thread.Sleep(1000);
-				persona.ContarPeronas();
+				persona.ContarPersonas();
 
 			}
 		}

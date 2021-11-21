@@ -122,8 +122,6 @@ namespace Test
 			{
 				Console.WriteLine("Hubo un error: " + ex.Message);
 			}
-
-
 		}
 	}
 }
